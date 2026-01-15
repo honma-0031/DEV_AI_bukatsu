@@ -336,67 +336,121 @@ sudo dnf install gh</code></pre>
         <!-- HTML開発の基本 -->
         <section id="html-development" class="section">
             <div class="container">
-                <h2 class="section-title">5. CursorでHTMLを開発する</h2>
+                <h2 class="section-title">5. CursorでAIを使ってWebサイトを開発する</h2>
                 <div class="content">
-                    <p>Cursorを使ってHTMLファイルを作成し、開発を始めましょう。</p>
+                    <p>CursorのPlanモードを使って、AIに計画を立ててもらい、コードを生成してデプロイするまでの流れを体験しましょう。これが、AIを活用したモダンな開発体験です。</p>
 
-                    <h3>ステップ1: プロジェクトフォルダの作成</h3>
+                    <h3>ステップ1: プロジェクトフォルダの準備</h3>
                     <ol class="step-list">
                         <li>Cursorを開きます</li>
                         <li>「File」→「Open Folder」を選択</li>
                         <li>新しいフォルダを作成するか、既存のフォルダを選択します</li>
+                        <li>このフォルダが、これから作成するWebサイトのプロジェクトフォルダになります</li>
                     </ol>
 
-                    <h3>ステップ2: HTMLファイルの作成</h3>
+                    <h3>ステップ2: Planモードで計画を立てる</h3>
+                    <p>Cursorの強力な機能「Planモード」を使って、AIにプロジェクトの計画を立ててもらいます。</p>
+                    
                     <ol class="step-list">
-                        <li>左サイドバーの「New File」アイコンをクリック、または <code>Ctrl+N</code> (Windows/Linux) / <code>Cmd+N</code> (Mac)</li>
-                        <li>ファイル名を <code>index.html</code> として保存します</li>
-                        <li>基本的なHTML構造を入力します：</li>
+                        <li>Cursorのチャットパネルを開きます（<code>Ctrl+L</code> または <code>Cmd+L</code>）</li>
+                        <li>以下のようなリクエストを入力します：</li>
                     </ol>
 
                     <div class="code-block-container">
-                        <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="ja"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;私のWebサイト&lt;/title&gt;
-    &lt;link rel="stylesheet" href="styles.css"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h1&gt;ようこそ！&lt;/h1&gt;
-    &lt;p&gt;これは私の最初のWebサイトです。&lt;/p&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
+                        <pre><code>「モダンで美しいポートフォリオサイトを作成してください。
+HTML、CSS、JavaScriptを使用して、レスポンシブデザインで
+自己紹介セクション、スキルセクション、プロジェクトセクションを含めてください。」</code></pre>
                     </div>
 
-                    <h3>ステップ3: CSSファイルの作成</h3>
-                    <p>同じフォルダに <code>styles.css</code> を作成します：</p>
-                    <div class="code-block-container">
-                        <pre><code>body {
-    font-family: Arial, sans-serif;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    line-height: 1.6;
-}
-
-h1 {
-    color: #333;
-}</code></pre>
+                    <div class="info-box">
+                        <strong>Planモードの特徴:</strong>
+                        <ul>
+                            <li>AIがプロジェクト全体の構造を理解して計画を立てます</li>
+                            <li>必要なファイルや機能を自動的に提案します</li>
+                            <li>実装前に計画を確認・修正できます</li>
+                            <li>段階的に実装を進められます</li>
+                        </ul>
                     </div>
 
-                    <h3>ステップ4: ライブプレビュー</h3>
+                    <h3>ステップ3: 計画の確認と承認</h3>
                     <ol class="step-list">
-                        <li>Cursorには組み込みのライブプレビュー機能があります</li>
-                        <li>HTMLファイルを開いた状態で、右上の「Go Live」ボタンをクリック</li>
-                        <li>または、拡張機能「Live Server」をインストールして使用することもできます</li>
-                        <li>ブラウザで自動的にページが開き、変更がリアルタイムで反映されます</li>
+                        <li>AIが提案した計画を確認します</li>
+                        <li>計画には以下のような内容が含まれます：
+                            <ul>
+                                <li>作成するファイルのリスト（index.html, styles.css, script.jsなど）</li>
+                                <li>各ファイルの役割と内容</li>
+                                <li>実装の順序</li>
+                            </ul>
+                        </li>
+                        <li>計画に問題がなければ「承認」または「実行」を選択します</li>
+                        <li>必要に応じて、計画を修正してから実行することもできます</li>
+                    </ol>
+
+                    <div class="warning-box">
+                        <strong>注意:</strong> 計画を実行する前に、内容をよく確認してください。AIが提案した計画は、あなたの意図と一致しているか確認しましょう。
+                    </div>
+
+                    <h3>ステップ4: AIによるコード生成（Build）</h3>
+                    <p>計画が承認されると、AIが自動的にコードを生成し始めます。</p>
+
+                    <ol class="step-list">
+                        <li>AIが計画に従って、ファイルを順番に作成します</li>
+                        <li>各ファイルのコードが自動的に生成されます</li>
+                        <li>生成されたコードは、Cursorのエディタに自動的に表示されます</li>
+                        <li>ファイルは自動的に保存されます</li>
                     </ol>
 
                     <div class="info-box">
-                        <strong>ヒント:</strong> CursorのAI機能を活用して、コードの補完や修正の提案を受けられます。
-                        <code>Ctrl+K</code> (Windows/Linux) / <code>Cmd+K</code> (Mac) でAIチャットを開けます。
+                        <strong>生成されるファイルの例:</strong>
+                        <ul>
+                            <li><code>index.html</code> - メインのHTMLファイル</li>
+                            <li><code>styles.css</code> - スタイルシート</li>
+                            <li><code>script.js</code> - JavaScript機能</li>
+                            <li><code>README.md</code> - プロジェクト説明（オプション）</li>
+                        </ul>
+                    </div>
+
+                    <h3>ステップ5: 生成されたコードの確認とカスタマイズ</h3>
+                    <ol class="step-list">
+                        <li>生成されたファイルを開いて、コードを確認します</li>
+                        <li>必要に応じて、AIに修正を依頼できます：
+                            <ul>
+                                <li>「色を変更してください」</li>
+                                <li>「フォントサイズを大きくしてください」</li>
+                                <li>「新しいセクションを追加してください」</li>
+                            </ul>
+                        </li>
+                        <li>AIチャット（<code>Ctrl+K</code> または <code>Cmd+K</code>）を使って、リアルタイムでコードを編集することもできます</li>
+                    </ol>
+
+                    <h3>ステップ6: ライブプレビューで確認</h3>
+                    <ol class="step-list">
+                        <li>生成された <code>index.html</code> を開きます</li>
+                        <li>Cursorの右上にある「Go Live」ボタンをクリック</li>
+                        <li>または、拡張機能「Live Server」を使用します</li>
+                        <li>ブラウザで自動的にページが開き、変更がリアルタイムで反映されます</li>
+                        <li>デザインや機能を確認し、必要に応じてAIに修正を依頼します</li>
+                    </ol>
+
+                    <h3>ステップ7: 最終調整と完成</h3>
+                    <ol class="step-list">
+                        <li>プレビューを見ながら、細かい調整を行います</li>
+                        <li>AIに「もっとモダンなデザインにしてください」などのリクエストを送ります</li>
+                        <li>満足いく仕上がりになったら、次のステップ（デプロイ）に進みます</li>
+                    </ol>
+
+                    <div class="success-box">
+                        <strong>AIを活用した開発のメリット:</strong>
+                        <ul>
+                            <li>コードを一から書く必要がなく、AIが生成してくれます</li>
+                            <li>ベストプラクティスに沿ったコードが生成されます</li>
+                            <li>リアルタイムで修正や改善を依頼できます</li>
+                            <li>学習しながら開発を進められます</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box">
+                        <strong>次のステップ:</strong> コードが完成したら、次のセクション「GitHub Pagesへのデプロイ」で、作成したWebサイトをインターネット上に公開しましょう！
                     </div>
                 </div>
             </div>
