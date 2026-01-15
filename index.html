@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CursorとGitHub PagesでWebサイトをデプロイする完全ガイド</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- ヘッダー/ナビゲーション -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <h1 class="logo">Cursor × GitHub Pages</h1>
+                <ul class="nav-menu">
+                    <li><a href="#introduction" class="nav-link">はじめに</a></li>
+                    <li><a href="#cursor-install" class="nav-link">Cursorインストール</a></li>
+                    <li><a href="#git-install" class="nav-link">Gitインストール</a></li>
+                    <li><a href="#github-account" class="nav-link">GitHubアカウント</a></li>
+                    <li><a href="#authentication" class="nav-link">認証設定</a></li>
+                    <li><a href="#html-development" class="nav-link">HTML開発</a></li>
+                    <li><a href="#deploy" class="nav-link">デプロイ</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <!-- イントロダクション -->
+        <section id="introduction" class="section">
+            <div class="container">
+                <h2 class="section-title">はじめに</h2>
+                <div class="content">
+                    <p class="lead">
+                        このガイドでは、Cursorエディタを使用してHTMLを開発し、GitHub PagesでWebサイトを公開するまでの完全な手順を説明します。
+                        初心者の方でも理解できるよう、各ステップを詳しく解説しています。
+                    </p>
+                    <div class="info-box">
+                        <strong>このガイドで学べること：</strong>
+                        <ul>
+                            <li>Cursorエディタのインストールとセットアップ</li>
+                            <li>Gitのインストールと初期設定</li>
+                            <li>GitHubアカウントの作成</li>
+                            <li>CursorとGitHubの連携方法</li>
+                            <li>HTMLファイルの作成と開発</li>
+                            <li>GitHub Pagesへのデプロイ方法</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cursorインストール手順 -->
+        <section id="cursor-install" class="section">
+            <div class="container">
+                <h2 class="section-title">1. Cursorエディタのインストール</h2>
+                <div class="content">
+                    <p>Cursorは、AIを統合したモダンなコードエディタです。まずはCursorをインストールしましょう。</p>
+
+                    <h3>ステップ1: Cursorのダウンロード</h3>
+                    <ol class="step-list">
+                        <li>
+                            <a href="https://cursor.sh/" target="_blank" rel="noopener noreferrer">Cursor公式サイト</a>にアクセスします
+                        </li>
+                        <li>「Download」ボタンをクリックして、お使いのOS用のインストーラーをダウンロードします</li>
+                        <li>対応OS: Windows、macOS、Linux</li>
+                    </ol>
+
+                    <h3>ステップ2: インストール</h3>
+                    
+                    <div class="os-tabs">
+                        <div class="os-tab">
+                            <h4>Windows</h4>
+                            <ol>
+                                <li>ダウンロードした`.exe`ファイルを実行します</li>
+                                <li>インストールウィザードに従って進めます</li>
+                                <li>インストールが完了したら、Cursorを起動します</li>
+                            </ol>
+                        </div>
+
+                        <div class="os-tab">
+                            <h4>macOS</h4>
+                            <ol>
+                                <li>ダウンロードした`.dmg`ファイルを開きます</li>
+                                <li>CursorアプリをApplicationsフォルダにドラッグ&ドロップします</li>
+                                <li>アプリケーションフォルダからCursorを起動します</li>
+                                <li>初回起動時、セキュリティ警告が表示される場合は「開く」をクリックします</li>
+                            </ol>
+                        </div>
+
+                        <div class="os-tab">
+                            <h4>Linux</h4>
+                            <ol>
+                                <li>ダウンロードした`.AppImage`または`.deb`ファイルを使用します</li>
+                                <li>
+                                    <strong>AppImageの場合:</strong>
+                                    <code class="code-block">chmod +x Cursor-*.AppImage && ./Cursor-*.AppImage</code>
+                                </li>
+                                <li>
+                                    <strong>Debian/Ubuntuの場合:</strong>
+                                    <code class="code-block">sudo dpkg -i cursor_*.deb</code>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="warning-box">
+                        <strong>注意:</strong> 初回起動時、Cursorはセットアップウィザードを表示します。基本的な設定を行いましょう。
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gitインストール手順 -->
+        <section id="git-install" class="section">
+            <div class="container">
+                <h2 class="section-title">2. Gitのインストール</h2>
+                <div class="content">
+                    <p>Gitは、バージョン管理システムです。GitHubと連携するために必要です。</p>
+
+                    <h3>ステップ1: Gitのダウンロード</h3>
+                    <ol class="step-list">
+                        <li>
+                            <a href="https://git-scm.com/downloads" target="_blank" rel="noopener noreferrer">Git公式サイト</a>にアクセスします
+                        </li>
+                        <li>お使いのOS用のインストーラーをダウンロードします</li>
+                    </ol>
+
+                    <h3>ステップ2: インストール</h3>
+                    
+                    <div class="os-tabs">
+                        <div class="os-tab">
+                            <h4>Windows</h4>
+                            <ol>
+                                <li>ダウンロードしたインストーラーを実行します</li>
+                                <li>インストールオプションは基本的にデフォルトのままで問題ありません</li>
+                                <li>「Git from the command line and also from 3rd-party software」を選択することを推奨します</li>
+                                <li>インストールが完了したら、コマンドプロンプトまたはPowerShellを開きます</li>
+                            </ol>
+                        </div>
+
+                        <div class="os-tab">
+                            <h4>macOS</h4>
+                            <ol>
+                                <li>ダウンロードした`.pkg`ファイルを実行します</li>
+                                <li>インストールウィザードに従って進めます</li>
+                                <li>または、Homebrewを使用している場合:
+                                    <code class="code-block">brew install git</code>
+                                </li>
+                            </ol>
+                        </div>
+
+                        <div class="os-tab">
+                            <h4>Linux</h4>
+                            <ol>
+                                <li>
+                                    <strong>Debian/Ubuntu:</strong>
+                                    <code class="code-block">sudo apt update && sudo apt install git</code>
+                                </li>
+                                <li>
+                                    <strong>Fedora:</strong>
+                                    <code class="code-block">sudo dnf install git</code>
+                                </li>
+                                <li>
+                                    <strong>Arch Linux:</strong>
+                                    <code class="code-block">sudo pacman -S git</code>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <h3>ステップ3: Gitの初期設定</h3>
+                    <p>インストール後、Gitにユーザー情報を設定する必要があります。ターミナル（コマンドプロンプト）で以下のコマンドを実行してください：</p>
+                    
+                    <div class="code-block-container">
+                        <pre><code>git config --global user.name "あなたの名前"
+git config --global user.email "your.email@example.com"</code></pre>
+                    </div>
+
+                    <div class="info-box">
+                        <strong>設定の確認:</strong>
+                        <code class="code-block">git config --list</code>
+                        で設定を確認できます。
+                    </div>
+
+                    <h3>ステップ4: インストール確認</h3>
+                    <p>以下のコマンドでGitが正しくインストールされたか確認します：</p>
+                    <div class="code-block-container">
+                        <pre><code>git --version</code></pre>
+                    </div>
+                    <p>バージョン番号が表示されれば、インストール成功です。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- GitHubアカウント作成手順 -->
+        <section id="github-account" class="section">
+            <div class="container">
+                <h2 class="section-title">3. GitHubアカウントの作成</h2>
+                <div class="content">
+                    <p>GitHubは、コードをホストし、GitHub PagesでWebサイトを公開できるプラットフォームです。</p>
+
+                    <h3>ステップ1: アカウント作成</h3>
+                    <ol class="step-list">
+                        <li>
+                            <a href="https://github.com/signup" target="_blank" rel="noopener noreferrer">GitHubのサインアップページ</a>にアクセスします
+                        </li>
+                        <li>ユーザー名、メールアドレス、パスワードを入力します</li>
+                        <li>メールアドレスの確認を行います（GitHubから送られてくる確認メールを開き、リンクをクリック）</li>
+                        <li>アカウントタイプを選択します（無料プランで問題ありません）</li>
+                        <li>簡単な質問に答えます（スキップ可能）</li>
+                    </ol>
+
+                    <div class="info-box">
+                        <strong>ユーザー名について:</strong>
+                        ユーザー名は後で変更できないため、慎重に選びましょう。GitHub PagesのURLにも使用されます。
+                    </div>
+
+                    <h3>ステップ2: リポジトリの作成</h3>
+                    <p>Webサイトを公開するためのリポジトリを作成します：</p>
+                    <ol class="step-list">
+                        <li>GitHubにログイン後、右上の「+」アイコンをクリックし、「New repository」を選択します</li>
+                        <li>リポジトリ名を入力します（例: `my-website`）</li>
+                        <li>「Public」を選択します（GitHub Pagesの無料プランではPublicリポジトリが必要です）</li>
+                        <li>「Initialize this repository with a README」のチェックは外しておきます（後でファイルを追加します）</li>
+                        <li>「Create repository」ボタンをクリックします</li>
+                    </ol>
+
+                    <div class="warning-box">
+                        <strong>重要:</strong> リポジトリ名は、GitHub PagesのURLに使用されます。
+                        例: `username.github.io` という名前のリポジトリを作成すると、`https://username.github.io` でアクセスできます。
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CursorとGitHubの認証手順 -->
+        <section id="authentication" class="section">
+            <div class="container">
+                <h2 class="section-title">4. CursorとGitHubの認証設定</h2>
+                <div class="content">
+                    <p>CursorからGitHubにアクセスできるように認証を設定します。</p>
+
+                    <h3>方法1: GitHub CLIを使用した認証（推奨）</h3>
+                    
+                    <h4>ステップ1: GitHub CLIのインストール</h4>
+                    <div class="os-tabs">
+                        <div class="os-tab">
+                            <h4>Windows</h4>
+                            <p>PowerShellで以下を実行：</p>
+                            <div class="code-block-container">
+                                <pre><code>winget install --id GitHub.cli</code></pre>
+                            </div>
+                        </div>
+                        <div class="os-tab">
+                            <h4>macOS</h4>
+                            <div class="code-block-container">
+                                <pre><code>brew install gh</code></pre>
+                            </div>
+                        </div>
+                        <div class="os-tab">
+                            <h4>Linux</h4>
+                            <div class="code-block-container">
+                                <pre><code># Debian/Ubuntu
+sudo apt install gh
+
+# Fedora
+sudo dnf install gh</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4>ステップ2: GitHub CLIでログイン</h4>
+                    <div class="code-block-container">
+                        <pre><code>gh auth login</code></pre>
+                    </div>
+                    <ol class="step-list">
+                        <li>プロンプトで「GitHub.com」を選択</li>
+                        <li>認証方法として「HTTPS」を選択</li>
+                        <li>「Login with a web browser」を選択</li>
+                        <li>表示されたコードをコピーし、ブラウザで認証を完了</li>
+                    </ol>
+
+                    <h3>方法2: Personal Access Tokenを使用</h3>
+                    
+                    <h4>ステップ1: トークンの生成</h4>
+                    <ol class="step-list">
+                        <li>GitHubにログインし、右上のプロフィールアイコンをクリック</li>
+                        <li>「Settings」を選択</li>
+                        <li>左サイドバーの「Developer settings」をクリック</li>
+                        <li>「Personal access tokens」→「Tokens (classic)」を選択</li>
+                        <li>「Generate new token」→「Generate new token (classic)」をクリック</li>
+                        <li>トークンに名前を付けます（例: "Cursor Access"）</li>
+                        <li>有効期限を設定します</li>
+                        <li>必要なスコープを選択します：
+                            <ul>
+                                <li><code>repo</code> - リポジトリへの完全なアクセス</li>
+                                <li><code>workflow</code> - GitHub Actionsの使用（必要に応じて）</li>
+                            </ul>
+                        </li>
+                        <li>「Generate token」をクリック</li>
+                        <li><strong>重要:</strong> 表示されたトークンをすぐにコピーして安全な場所に保存します（再表示できません）</li>
+                    </ol>
+
+                    <h4>ステップ2: Cursorでの認証設定</h4>
+                    <ol class="step-list">
+                        <li>Cursorを開きます</li>
+                        <li>左下の歯車アイコン（設定）をクリック</li>
+                        <li>「Settings」を開きます</li>
+                        <li>検索バーで「git」と検索</li>
+                        <li>「Git: Enabled」が有効になっていることを確認</li>
+                        <li>ターミナルで以下のコマンドを実行して、Gitに認証情報を設定：
+                            <div class="code-block-container">
+                                <pre><code>git config --global credential.helper store</code></pre>
+                            </div>
+                        </li>
+                    </ol>
+
+                    <h3>ステップ3: 認証の確認</h3>
+                    <p>Cursorのターミナルで以下を実行して、認証が正しく設定されているか確認します：</p>
+                    <div class="code-block-container">
+                        <pre><code>gh auth status</code></pre>
+                    </div>
+                    <p>または、GitHubリポジトリをクローンしてテストします：</p>
+                    <div class="code-block-container">
+                        <pre><code>git clone https://github.com/your-username/your-repo.git</code></pre>
+                    </div>
+
+                    <div class="success-box">
+                        <strong>成功:</strong> エラーなくクローンできれば、認証設定は完了です！
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HTML開発の基本 -->
+        <section id="html-development" class="section">
+            <div class="container">
+                <h2 class="section-title">5. CursorでHTMLを開発する</h2>
+                <div class="content">
+                    <p>Cursorを使ってHTMLファイルを作成し、開発を始めましょう。</p>
+
+                    <h3>ステップ1: プロジェクトフォルダの作成</h3>
+                    <ol class="step-list">
+                        <li>Cursorを開きます</li>
+                        <li>「File」→「Open Folder」を選択</li>
+                        <li>新しいフォルダを作成するか、既存のフォルダを選択します</li>
+                    </ol>
+
+                    <h3>ステップ2: HTMLファイルの作成</h3>
+                    <ol class="step-list">
+                        <li>左サイドバーの「New File」アイコンをクリック、または <code>Ctrl+N</code> (Windows/Linux) / <code>Cmd+N</code> (Mac)</li>
+                        <li>ファイル名を <code>index.html</code> として保存します</li>
+                        <li>基本的なHTML構造を入力します：</li>
+                    </ol>
+
+                    <div class="code-block-container">
+                        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;私のWebサイト&lt;/title&gt;
+    &lt;link rel="stylesheet" href="styles.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;ようこそ！&lt;/h1&gt;
+    &lt;p&gt;これは私の最初のWebサイトです。&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                    </div>
+
+                    <h3>ステップ3: CSSファイルの作成</h3>
+                    <p>同じフォルダに <code>styles.css</code> を作成します：</p>
+                    <div class="code-block-container">
+                        <pre><code>body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+h1 {
+    color: #333;
+}</code></pre>
+                    </div>
+
+                    <h3>ステップ4: ライブプレビュー</h3>
+                    <ol class="step-list">
+                        <li>Cursorには組み込みのライブプレビュー機能があります</li>
+                        <li>HTMLファイルを開いた状態で、右上の「Go Live」ボタンをクリック</li>
+                        <li>または、拡張機能「Live Server」をインストールして使用することもできます</li>
+                        <li>ブラウザで自動的にページが開き、変更がリアルタイムで反映されます</li>
+                    </ol>
+
+                    <div class="info-box">
+                        <strong>ヒント:</strong> CursorのAI機能を活用して、コードの補完や修正の提案を受けられます。
+                        <code>Ctrl+K</code> (Windows/Linux) / <code>Cmd+K</code> (Mac) でAIチャットを開けます。
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GitHub Pagesへのデプロイ手順 -->
+        <section id="deploy" class="section">
+            <div class="container">
+                <h2 class="section-title">6. GitHub Pagesへのデプロイ</h2>
+                <div class="content">
+                    <p>作成したHTMLファイルをGitHub Pagesで公開します。</p>
+
+                    <h3>ステップ1: リポジトリの初期化</h3>
+                    <p>Cursorのターミナルで、プロジェクトフォルダに移動して以下を実行します：</p>
+                    <div class="code-block-container">
+                        <pre><code>git init
+git add .
+git commit -m "Initial commit"</code></pre>
+                    </div>
+
+                    <h3>ステップ2: GitHubリポジトリとの接続</h3>
+                    <p>先ほど作成したGitHubリポジトリと接続します：</p>
+                    <div class="code-block-container">
+                        <pre><code>git remote add origin https://github.com/your-username/your-repo.git
+git branch -M main
+git push -u origin main</code></pre>
+                    </div>
+
+                    <div class="warning-box">
+                        <strong>注意:</strong> <code>your-username</code> と <code>your-repo</code> は、実際のユーザー名とリポジトリ名に置き換えてください。
+                    </div>
+
+                    <h3>ステップ3: GitHub Pagesの有効化</h3>
+                    <ol class="step-list">
+                        <li>GitHubのリポジトリページに移動します</li>
+                        <li>「Settings」タブをクリックします</li>
+                        <li>左サイドバーの「Pages」を選択します</li>
+                        <li>「Source」セクションで「Deploy from a branch」を選択します</li>
+                        <li>「Branch」で「main」を選択し、フォルダは「/ (root)」を選択します</li>
+                        <li>「Save」ボタンをクリックします</li>
+                    </ol>
+
+                    <h3>ステップ4: デプロイの確認</h3>
+                    <ol class="step-list">
+                        <li>数分待ってから、<code>https://your-username.github.io/your-repo</code> にアクセスします</li>
+                        <li>Webサイトが表示されれば成功です！</li>
+                    </ol>
+
+                    <div class="info-box">
+                        <strong>カスタムドメイン:</strong> 独自ドメインを使用したい場合は、Settings → Pages で「Custom domain」を設定できます。
+                        DNS設定も必要になります。
+                    </div>
+
+                    <h3>ステップ5: 更新のデプロイ</h3>
+                    <p>ファイルを更新したら、以下のコマンドで再デプロイします：</p>
+                    <div class="code-block-container">
+                        <pre><code>git add .
+git commit -m "Update website"
+git push</code></pre>
+                    </div>
+                    <p>数分後、変更がGitHub Pagesに反映されます。</p>
+
+                    <div class="success-box">
+                        <strong>おめでとうございます！</strong> あなたのWebサイトがインターネット上で公開されました！
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- まとめ -->
+        <section id="summary" class="section">
+            <div class="container">
+                <h2 class="section-title">まとめ</h2>
+                <div class="content">
+                    <p>このガイドでは、以下の手順を学びました：</p>
+                    <ol class="step-list">
+                        <li>Cursorエディタのインストール</li>
+                        <li>Gitのインストールと初期設定</li>
+                        <li>GitHubアカウントの作成</li>
+                        <li>CursorとGitHubの認証設定</li>
+                        <li>HTMLファイルの作成と開発</li>
+                        <li>GitHub Pagesへのデプロイ</li>
+                    </ol>
+                    <p>これで、Cursorを使ってWebサイトを開発し、GitHub Pagesで公開する準備が整いました。継続的に学習し、より良いWebサイトを作成していきましょう！</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>参考リンク</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://cursor.sh/" target="_blank" rel="noopener noreferrer">Cursor公式サイト</a></li>
+                        <li><a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer">Git公式サイト</a></li>
+                        <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+                        <li><a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a></li>
+                        <li><a href="https://docs.github.com/ja/pages" target="_blank" rel="noopener noreferrer">GitHub Pages ドキュメント</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <p class="footer-text">最終更新: <span id="update-date"></span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
